@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5"/>
+        app:layout_constraintGuide_percent="0.5" />
 
     <TextView
         android:id="@+id/tvName"
@@ -115,13 +115,13 @@
         android:id="@+id/tvFollowers"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:padding="8dp"
         android:textAlignment="center"
         android:textSize="18sp"
-        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="@+id/civAvatar"
-        app:layout_constraintWidth_default="wrap"
         app:layout_constraintStart_toStartOf="@+id/civAvatar"
         app:layout_constraintTop_toBottomOf="@id/tvFollowersNum"
+        app:layout_constraintWidth_default="wrap"
         tools:text="Followers" />
 
     <TextView
@@ -247,10 +247,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:textColor="@color/colorAccent"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
-        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/glStart"
         app:layout_constraintTop_toBottomOf="@id/vDividerBot"
         tools:text="Website" />
@@ -259,12 +259,84 @@
         android:id="@+id/tvWebsiteContent"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
         android:layout_marginTop="8dp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@id/tvWebsite"
         app:layout_constraintTop_toBottomOf="@id/tvWebsite"
         tools:text="visual-photo.me" />
 
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/glMid"
+        app:layout_constraintTop_toBottomOf="@id/vDividerBot"
+        tools:text="Email" />
+
+    <TextView
+        android:id="@+id/tvEmailContent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/tvEmail"
+        app:layout_constraintTop_toBottomOf="@id/tvEmail"
+        tools:text="juliana.c@mail.com" />
+
+
+    <TextView
+        android:id="@+id/tvPhone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/glStart"
+        app:layout_constraintTop_toBottomOf="@id/tvWebsiteContent"
+        tools:text="Phone" />
+
+    <TextView
+        android:id="@+id/tvPhoneContent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/tvPhone"
+        app:layout_constraintTop_toBottomOf="@id/tvPhone"
+        tools:text="(022)77723287" />
+
+    <TextView
+        android:id="@+id/tvLocation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/glMid"
+        app:layout_constraintTop_toBottomOf="@id/tvEmailContent"
+        tools:text="Email" />
+
+    <TextView
+        android:id="@+id/tvLocationContent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/tvLocation"
+        app:layout_constraintTop_toBottomOf="@id/tvLocation"
+        tools:text="United States" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="0dp"
