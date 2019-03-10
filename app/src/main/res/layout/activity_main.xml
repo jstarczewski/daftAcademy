@@ -97,7 +97,7 @@
         android:layout_height="1dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:background="#666666"
+        android:background="#cfd8dc"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -143,7 +143,6 @@
         app:layout_constraintEnd_toStartOf="@id/tvFollowersNum"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="@id/glStart"
-        app:layout_constraintTop_toTopOf="@id/tvFollowersNum"
         tools:text="1.5 K" />
 
 
@@ -190,7 +189,7 @@
         android:layout_height="1dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:background="#666666"
+        android:background="#cfd8dc"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/tvDescription"
         app:layout_constraintEnd_toEndOf="parent"
@@ -202,14 +201,15 @@
         android:id="@+id/tvDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
         android:textAlignment="center"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@id/vDividerBot"
         app:layout_constraintEnd_toEndOf="@id/glEnd"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="@id/glStart"
         app:layout_constraintTop_toBottomOf="@id/vDividerMid"
-        tools:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. " />
+        tools:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Etiam efficitur ipsum in placerat molestie. Fusce quis mauris a enim sollicitudin" />
 
     <View
         android:id="@+id/vDividerBot"
@@ -217,8 +217,9 @@
         android:layout_height="1dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:background="#666666"
+        android:background="#cfd8dc"
         android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/tvWebsite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvDescription"
@@ -234,6 +235,15 @@
         app:layout_constraintStart_toStartOf="@id/glStart"
         app:layout_constraintTop_toBottomOf="@id/vDividerBot"
         tools:text="Website" />
+
+    <TextView
+        android:id="@+id/tvWebsiteContent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@id/tvWebsite"
+        app:layout_constraintTop_toBottomOf="@id/tvWebsite"
+        tools:text="visual-photo.me" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
