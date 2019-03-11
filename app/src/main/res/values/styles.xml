@@ -8,4 +8,19 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MaterialComponents.Body1DefaultTextColor" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@android:color/tab_indicator_text</item>
+    </style>
+
+    <style name="MaterialComponents.Body1BoldColorPrimary" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="MaterialComponents.Headline6ColorPrimarySize18" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAlignment">center</item>
+    </style>
 </resources>

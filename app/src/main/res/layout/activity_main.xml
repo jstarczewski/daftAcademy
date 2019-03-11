@@ -11,14 +11,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp" />
+        app:layout_constraintGuide_begin="32dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/glEnd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="16dp" />
+        app:layout_constraintGuide_end="32dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/glMid"
@@ -32,6 +32,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:paddingTop="16dp"
         android:text="@string/name"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
@@ -60,8 +61,9 @@
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:layout_margin="16dp"
+        android:contentDescription="@string/avatar"
         android:src="@mipmap/ic_launcher_round"
-        app:civ_border_color="#9C27B0"
+        app:civ_border_color="@color/colorPrimary"
         app:civ_border_width="2dp"
         app:layout_constrainedWidth="true"
         app:layout_constraintBottom_toTopOf="@id/vDividerTop"
@@ -75,7 +77,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:src="@drawable/ic_message_light_green_600_24dp"
+        android:contentDescription="@string/message"
+        android:src="@drawable/ic_chat_light_green_600_24dp"
         app:layout_constrainedWidth="true"
         app:layout_constraintBottom_toBottomOf="@id/civAvatar"
         app:layout_constraintEnd_toStartOf="@id/civAvatar"
@@ -88,6 +91,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:contentDescription="@string/call"
         android:src="@drawable/ic_call_light_green_600_24dp"
         app:layout_constrainedWidth="true"
         app:layout_constraintBottom_toBottomOf="@id/civAvatar"
@@ -103,7 +107,7 @@
         android:layout_height="1dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:background="#e0e0e0"
+        android:background="@color/colorDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/civAvatar"
@@ -116,6 +120,7 @@
         android:padding="8dp"
         android:text="@string/followers"
         android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
         app:layout_constrainedWidth="false"
         app:layout_constraintEnd_toEndOf="@+id/civAvatar"
         app:layout_constraintStart_toStartOf="@+id/civAvatar"
@@ -124,13 +129,11 @@
 
     <TextView
         android:id="@+id/tvPostsNum"
+        style="@style/MaterialComponents.Headline6ColorPrimarySize18"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:paddingTop="8dp"
         android:text="@string/posts_num"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-        android:textColor="@color/colorPrimary"
-        android:textSize="18sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvFollowersNum"
         app:layout_constraintEnd_toEndOf="@id/tvPosts"
         app:layout_constraintHorizontal_bias="1.0"
@@ -140,14 +143,12 @@
 
     <TextView
         android:id="@+id/tvFollowersNum"
+        style="@style/MaterialComponents.Headline6ColorPrimarySize18"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:paddingTop="8dp"
         android:text="@string/followers_num"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-        android:textColor="@color/colorPrimary"
-        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@id/tvFollowers"
         app:layout_constraintStart_toStartOf="@id/tvFollowers"
         app:layout_constraintTop_toBottomOf="@id/vDividerTop"
@@ -161,6 +162,7 @@
         android:padding="8dp"
         android:text="@string/posts"
         android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
         app:layout_constrainedWidth="false"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvFollowers"
         app:layout_constraintEnd_toStartOf="@id/tvFollowers"
@@ -170,13 +172,11 @@
 
     <TextView
         android:id="@+id/tvFollowingNum"
+        style="@style/MaterialComponents.Headline6ColorPrimarySize18"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:paddingTop="8dp"
         android:text="@string/following_num"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-        android:textColor="@color/colorPrimary"
-        android:textSize="18sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvFollowersNum"
         app:layout_constraintEnd_toEndOf="@id/tvFollowing"
         app:layout_constraintStart_toStartOf="@id/tvFollowing"
@@ -186,9 +186,10 @@
         android:id="@+id/tvFollowing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:letterSpacing="@android:integer/config_longAnimTime"
         android:padding="8dp"
         android:text="@string/following"
-        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
         app:layout_constrainedWidth="false"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvFollowers"
         app:layout_constraintEnd_toEndOf="@id/glEnd"
@@ -203,7 +204,7 @@
         android:layout_height="1dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:background="#e0e0e0"
+        android:background="@color/colorDivider"
         app:layout_constraintBottom_toTopOf="@id/tvDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -216,7 +217,7 @@
         android:layout_height="wrap_content"
         android:text="@string/description"
         android:textAlignment="center"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
         app:layout_constraintBottom_toTopOf="@id/vDividerBot"
         app:layout_constraintEnd_toEndOf="@id/glEnd"
         app:layout_constraintHorizontal_chainStyle="packed"
@@ -230,7 +231,7 @@
         android:layout_height="1dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:background="#e0e0e0"
+        android:background="@color/colorDivider"
         app:layout_constraintBottom_toTopOf="@id/tvWebsite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -239,20 +240,19 @@
 
     <TextView
         android:id="@+id/tvWebsite"
+        style="@style/MaterialComponents.Body1BoldColorPrimary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/website"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-        android:textColor="@color/colorPrimary"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/glStart"
         app:layout_constraintTop_toBottomOf="@id/vDividerBot"
         tools:text="Website" />
 
     <TextView
         android:id="@+id/tvWebsiteContent"
+        style="@style/MaterialComponents.Body1DefaultTextColor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -264,20 +264,19 @@
 
     <TextView
         android:id="@+id/tvEmail"
+        style="@style/MaterialComponents.Body1BoldColorPrimary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/email"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-        android:textColor="@color/colorPrimary"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/glMid"
         app:layout_constraintTop_toBottomOf="@id/vDividerBot"
         tools:text="Email" />
 
     <TextView
         android:id="@+id/tvEmailContent"
+        style="@style/MaterialComponents.Body1DefaultTextColor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -290,20 +289,19 @@
 
     <TextView
         android:id="@+id/tvPhone"
+        style="@style/MaterialComponents.Body1BoldColorPrimary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/phone"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-        android:textColor="@color/colorPrimary"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/glStart"
         app:layout_constraintTop_toBottomOf="@id/tvWebsiteContent"
         tools:text="Phone" />
 
     <TextView
         android:id="@+id/tvPhoneContent"
+        style="@style/MaterialComponents.Body1DefaultTextColor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -315,20 +313,19 @@
 
     <TextView
         android:id="@+id/tvLocation"
+        style="@style/MaterialComponents.Body1BoldColorPrimary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/location"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-        android:textColor="@color/colorPrimary"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/glMid"
         app:layout_constraintTop_toBottomOf="@id/tvEmailContent"
         tools:text="Location" />
 
     <TextView
         android:id="@+id/tvLocationContent"
+        style="@style/MaterialComponents.Body1DefaultTextColor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"

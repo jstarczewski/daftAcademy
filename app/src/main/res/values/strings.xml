@@ -17,4 +17,7 @@
     <string name="website">Website</string>
     <string name="location">Location</string>
     <string name="email">Email</string>
+    <string name="message">Message</string>
+    <string name="call">Call</string>
+    <string name="avatar">avatar</string>
 </resources>
