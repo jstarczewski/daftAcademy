@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">JstarczewskiHomework</string>
+    <string name="name">Julianna Carter</string>
+    <string name="faculty">Photographer</string>
+    <string name="posts">Posts</string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    <string name="posts_num">1.5 K</string>
+    <string name="followers_num">17.8 K</string>
+    <string name="following_num">1.3 K</string>
+    <string name="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Etiam efficitur ipsum in placerat molestie. Fusce quis mauris a enim sollicitudin</string>
+    <string name="email_content">juliana.c@mail.com</string>
+    <string name="phone_content">(022)77723287</string>
+    <string name="website_content">visual-photo.me</string>
+    <string name="location_content">United State</string>
+    <string name="phone">Phone</string>
+    <string name="website">Website</string>
+    <string name="location">Location</string>
+    <string name="email">Email</string>
 </resources>
