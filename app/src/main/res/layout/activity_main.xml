@@ -11,14 +11,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="32dp" />
+        app:layout_constraintGuide_begin="16dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/glEnd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="32dp" />
+        app:layout_constraintGuide_end="16dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/glMid"
@@ -61,12 +61,12 @@
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:layout_margin="16dp"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/avatar"
         android:src="@mipmap/ic_launcher_round"
         app:civ_border_color="@color/colorPrimary"
         app:civ_border_width="2dp"
         app:layout_constrainedWidth="true"
-        app:layout_constraintBottom_toTopOf="@id/vDividerTop"
         app:layout_constraintEnd_toStartOf="@id/ivCall"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@id/ivMessage"
@@ -105,8 +105,8 @@
         android:id="@+id/vDividerTop"
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/colorDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -117,41 +117,44 @@
         android:id="@+id/tvFollowers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp"
+        android:layout_margin="8dp"
         android:text="@string/followers"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
         app:layout_constrainedWidth="false"
-        app:layout_constraintEnd_toEndOf="@+id/civAvatar"
-        app:layout_constraintStart_toStartOf="@+id/civAvatar"
-        app:layout_constraintTop_toBottomOf="@id/tvFollowersNum"
+        app:layout_constraintEnd_toEndOf="@+id/tvFollowersNum"
+        app:layout_constraintStart_toStartOf="@+id/tvFollowersNum"
+        app:layout_constraintTop_toBottomOf="@+id/tvFollowersNum"
         tools:text="Followers" />
 
     <TextView
         android:id="@+id/tvPostsNum"
         style="@style/MaterialComponents.Headline6ColorPrimarySize18"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="8dp"
+        android:layout_marginStart="16dp"
         android:text="@string/posts_num"
+        app:layout_constrainedWidth="false"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvFollowersNum"
-        app:layout_constraintEnd_toEndOf="@id/tvPosts"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@id/tvPosts"
+        app:layout_constraintEnd_toStartOf="@+id/tvFollowersNum"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/glStart"
         tools:text="1.5 K" />
 
 
     <TextView
         android:id="@+id/tvFollowersNum"
         style="@style/MaterialComponents.Headline6ColorPrimarySize18"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:paddingTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/followers_num"
-        app:layout_constraintEnd_toEndOf="@id/tvFollowers"
-        app:layout_constraintStart_toStartOf="@id/tvFollowers"
-        app:layout_constraintTop_toBottomOf="@id/vDividerTop"
+        app:layout_constrainedWidth="false"
+        app:layout_constraintEnd_toEndOf="@+id/civAvatar"
+        app:layout_constraintStart_toStartOf="@+id/civAvatar"
+        app:layout_constraintTop_toBottomOf="@+id/vDividerTop"
         tools:text="17.8 K" />
 
 
@@ -159,51 +162,48 @@
         android:id="@+id/tvPosts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp"
+        android:layout_margin="8dp"
         android:text="@string/posts"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
         app:layout_constrainedWidth="false"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvFollowers"
-        app:layout_constraintEnd_toStartOf="@id/tvFollowers"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/glStart"
+        app:layout_constraintEnd_toEndOf="@+id/tvPostsNum"
+        app:layout_constraintStart_toStartOf="@+id/tvPostsNum"
         tools:text="Posts" />
 
     <TextView
         android:id="@+id/tvFollowingNum"
         style="@style/MaterialComponents.Headline6ColorPrimarySize18"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/following_num"
+        app:layout_constrainedWidth="false"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvFollowersNum"
-        app:layout_constraintEnd_toEndOf="@id/tvFollowing"
-        app:layout_constraintStart_toStartOf="@id/tvFollowing"
+        app:layout_constraintEnd_toStartOf="@+id/glEnd"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tvFollowersNum"
         tools:text="1.3 K" />
 
     <TextView
         android:id="@+id/tvFollowing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:letterSpacing="@android:integer/config_longAnimTime"
-        android:padding="8dp"
         android:text="@string/following"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
         app:layout_constrainedWidth="false"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvFollowers"
-        app:layout_constraintEnd_toEndOf="@id/glEnd"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@id/tvFollowers"
+        app:layout_constraintEnd_toEndOf="@+id/tvFollowingNum"
+        app:layout_constraintStart_toStartOf="@+id/tvFollowingNum"
         tools:text="Following" />
 
     <View
         android:id="@+id/vDividerMid"
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/colorDivider"
         app:layout_constraintBottom_toTopOf="@id/tvDescription"
         app:layout_constraintEnd_toEndOf="parent"
@@ -215,12 +215,13 @@
         android:id="@+id/tvDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/description"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
         app:layout_constraintBottom_toTopOf="@id/vDividerBot"
         app:layout_constraintEnd_toEndOf="@id/glEnd"
-        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="@id/glStart"
         app:layout_constraintTop_toBottomOf="@id/vDividerMid"
         tools:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Etiam efficitur ipsum in placerat molestie. Fusce quis mauris a enim sollicitudin" />
@@ -229,8 +230,8 @@
         android:id="@+id/vDividerBot"
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/colorDivider"
         app:layout_constraintBottom_toTopOf="@id/tvWebsite"
         app:layout_constraintEnd_toEndOf="parent"
@@ -243,9 +244,11 @@
         style="@style/MaterialComponents.Body1BoldColorPrimary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/website"
+        app:layout_constraintEnd_toStartOf="@+id/tvEmail"
         app:layout_constraintStart_toStartOf="@id/glStart"
         app:layout_constraintTop_toBottomOf="@id/vDividerBot"
         tools:text="Website" />
@@ -255,11 +258,10 @@
         style="@style/MaterialComponents.Body1DefaultTextColor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:text="@string/website_content"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvEmailContent"
+        app:layout_constraintEnd_toEndOf="@+id/tvWebsite"
         app:layout_constraintStart_toStartOf="@id/tvWebsite"
-        app:layout_constraintTop_toBottomOf="@id/tvWebsite"
         tools:text="visual-photo.me" />
 
     <TextView
@@ -267,11 +269,11 @@
         style="@style/MaterialComponents.Body1BoldColorPrimary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/email"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvWebsite"
+        app:layout_constraintEnd_toStartOf="@+id/glEnd"
         app:layout_constraintStart_toStartOf="@id/glMid"
-        app:layout_constraintTop_toBottomOf="@id/vDividerBot"
         tools:text="Email" />
 
     <TextView
@@ -280,9 +282,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:text="@string/email_content"
-        app:layout_constraintStart_toStartOf="@id/tvEmail"
+        app:layout_constraintEnd_toEndOf="@+id/tvEmail"
+        app:layout_constraintStart_toStartOf="@+id/tvEmail"
         app:layout_constraintTop_toBottomOf="@id/tvEmail"
         tools:text="juliana.c@mail.com" />
 
@@ -292,9 +294,11 @@
         style="@style/MaterialComponents.Body1BoldColorPrimary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/phone"
+        app:layout_constraintEnd_toStartOf="@+id/tvLocation"
         app:layout_constraintStart_toStartOf="@id/glStart"
         app:layout_constraintTop_toBottomOf="@id/tvWebsiteContent"
         tools:text="Phone" />
@@ -305,9 +309,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:text="@string/phone_content"
-        app:layout_constraintStart_toStartOf="@id/tvPhone"
+        app:layout_constraintEnd_toEndOf="@+id/tvPhone"
+        app:layout_constraintStart_toStartOf="@+id/tvPhone"
         app:layout_constraintTop_toBottomOf="@id/tvPhone"
         tools:text="(022)77723287" />
 
@@ -316,11 +320,11 @@
         style="@style/MaterialComponents.Body1BoldColorPrimary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/location"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvPhone"
+        app:layout_constraintEnd_toStartOf="@+id/glEnd"
         app:layout_constraintStart_toStartOf="@id/glMid"
-        app:layout_constraintTop_toBottomOf="@id/tvEmailContent"
         tools:text="Location" />
 
     <TextView
@@ -328,11 +332,10 @@
         style="@style/MaterialComponents.Body1DefaultTextColor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:text="@string/location_content"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvPhoneContent"
+        app:layout_constraintEnd_toEndOf="@+id/tvLocation"
         app:layout_constraintStart_toStartOf="@id/tvLocation"
-        app:layout_constraintTop_toBottomOf="@id/tvLocation"
         tools:text="United State" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
