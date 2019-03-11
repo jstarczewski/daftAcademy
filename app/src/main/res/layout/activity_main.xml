@@ -115,12 +115,11 @@
 
     <TextView
         android:id="@+id/tvFollowers"
+        style="@style/MaterialComponents.Subtitle1.DefaultTextColor.Center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="@string/followers"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
         app:layout_constrainedWidth="false"
         app:layout_constraintEnd_toEndOf="@+id/tvFollowersNum"
         app:layout_constraintStart_toStartOf="@+id/tvFollowersNum"
@@ -129,7 +128,7 @@
 
     <TextView
         android:id="@+id/tvPostsNum"
-        style="@style/MaterialComponents.Headline6ColorPrimarySize18"
+        style="@style/MaterialComponents.Headline6.ColorPrimary.Size18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -144,7 +143,7 @@
 
     <TextView
         android:id="@+id/tvFollowersNum"
-        style="@style/MaterialComponents.Headline6ColorPrimarySize18"
+        style="@style/MaterialComponents.Headline6.ColorPrimary.Size18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -160,12 +159,11 @@
 
     <TextView
         android:id="@+id/tvPosts"
+        style="@style/MaterialComponents.Subtitle1.DefaultTextColor.Center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="@string/posts"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
         app:layout_constrainedWidth="false"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvFollowers"
         app:layout_constraintEnd_toEndOf="@+id/tvPostsNum"
@@ -174,7 +172,7 @@
 
     <TextView
         android:id="@+id/tvFollowingNum"
-        style="@style/MaterialComponents.Headline6ColorPrimarySize18"
+        style="@style/MaterialComponents.Headline6.ColorPrimary.Size18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -188,10 +186,10 @@
 
     <TextView
         android:id="@+id/tvFollowing"
+        style="@style/MaterialComponents.Subtitle1.DefaultTextColor.Center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/following"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
         app:layout_constrainedWidth="false"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvFollowers"
         app:layout_constraintEnd_toEndOf="@+id/tvFollowingNum"
@@ -224,7 +222,7 @@
         app:layout_constraintEnd_toEndOf="@id/glEnd"
         app:layout_constraintStart_toStartOf="@id/glStart"
         app:layout_constraintTop_toBottomOf="@id/vDividerMid"
-        tools:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Etiam efficitur ipsum in placerat molestie. Fusce quis mauris a enim sollicitudin" />
+        tools:text="@string/description"/>
 
     <View
         android:id="@+id/vDividerBot"
@@ -241,7 +239,7 @@
 
     <TextView
         android:id="@+id/tvWebsite"
-        style="@style/MaterialComponents.Body1BoldColorPrimary"
+        style="@style/MaterialComponents.Body1.Bold.ColorPrimary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -255,7 +253,7 @@
 
     <TextView
         android:id="@+id/tvWebsiteContent"
-        style="@style/MaterialComponents.Body1DefaultTextColor"
+        style="@style/MaterialComponents.Body1.DefaultTextColor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/website_content"
@@ -266,7 +264,7 @@
 
     <TextView
         android:id="@+id/tvEmail"
-        style="@style/MaterialComponents.Body1BoldColorPrimary"
+        style="@style/MaterialComponents.Body1.Bold.ColorPrimary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -278,7 +276,7 @@
 
     <TextView
         android:id="@+id/tvEmailContent"
-        style="@style/MaterialComponents.Body1DefaultTextColor"
+        style="@style/MaterialComponents.Body1.DefaultTextColor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -291,7 +289,7 @@
 
     <TextView
         android:id="@+id/tvPhone"
-        style="@style/MaterialComponents.Body1BoldColorPrimary"
+        style="@style/MaterialComponents.Body1.Bold.ColorPrimary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -305,7 +303,7 @@
 
     <TextView
         android:id="@+id/tvPhoneContent"
-        style="@style/MaterialComponents.Body1DefaultTextColor"
+        style="@style/MaterialComponents.Body1.DefaultTextColor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -317,7 +315,7 @@
 
     <TextView
         android:id="@+id/tvLocation"
-        style="@style/MaterialComponents.Body1BoldColorPrimary"
+        style="@style/MaterialComponents.Body1.Bold.ColorPrimary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -329,7 +327,7 @@
 
     <TextView
         android:id="@+id/tvLocationContent"
-        style="@style/MaterialComponents.Body1DefaultTextColor"
+        style="@style/MaterialComponents.Body1.DefaultTextColor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/location_content"
