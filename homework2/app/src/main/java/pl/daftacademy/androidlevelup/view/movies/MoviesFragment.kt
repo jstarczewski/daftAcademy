@@ -21,6 +21,10 @@ class MoviesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         recyclerView.adapter = adapter
-        adapter.items = viewModel.getMovies()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.start()
     }
 }

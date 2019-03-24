@@ -3,6 +3,7 @@
 
     <item
             android:id="@+id/movies_all"
+            android:checked="true"
             android:icon="@drawable/ic_movies"
             android:title="@string/all_movies"/>
     <item
