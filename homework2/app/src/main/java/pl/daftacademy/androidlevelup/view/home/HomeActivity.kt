@@ -26,7 +26,6 @@ class HomeActivity : AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
         }
         setupNavigationDrawer()
-
         viewModel = obtainViewModel()
 
     }
