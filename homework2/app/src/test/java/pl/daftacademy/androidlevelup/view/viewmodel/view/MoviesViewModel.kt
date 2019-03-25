@@ -12,7 +12,7 @@ class MoviesViewModel(application: Application) : AndroidViewModel(application) 
 
     /**
      * Since the given movieDao is not injected via constructor into viewModel I decided to copy App viewModel
-     * and create separate one for testing purposes. The belows version uses weaker access modifiers for
+     * and create separate one for testing purposes. The belows version uses weaker access modifier for
      * movieDao so it can be mocked
      * */
 
