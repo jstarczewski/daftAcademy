@@ -1,4 +1,4 @@
-package pl.daftacademy.androidlevelup.view.viewmodel
+package pl.daftacademy.androidlevelup.view.viewmodel.view
 
 import android.app.Application
 import androidx.annotation.VisibleForTesting
@@ -10,9 +10,15 @@ import pl.daftacademy.androidlevelup.entity.Movie
 
 class MoviesViewModel(application: Application) : AndroidViewModel(application) {
 
+    /**
+     * Since the given movieDao is not injected via constructor into viewModel I decided to copy App viewModel
+     * and create separate one for testing purposes. The belows version uses weaker access modifiers for
+     * movieDao so it can be mocked
+     * */
+
     private val _movies = ArrayList<Movie>()
     val movies: ObservableArrayList<Movie> = ObservableArrayList()
-    private val movieDao: MovieDao = MovieFileDao(getApplication())
+    var movieDao: MovieDao = MovieFileDao(getApplication())
 
     /**
      * query and cache data from data source (normally with an async solution)

@@ -33,4 +33,10 @@ dependencies {
     implementation "androidx.cardview:cardview:1.0.0"
     implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
     implementation "com.google.code.gson:gson:2.8.5"
+    testImplementation 'junit:junit:4.12'
+
+
+    testImplementation "org.mockito:mockito-core:2.8.47"
+    androidTestImplementation "org.mockito:mockito-android:2.8.47"
+
 }
