@@ -49,7 +49,10 @@ class HomeActivity : AppCompatActivity() {
     private fun setupDrawerContent(navigationView: NavigationView) {
 
         navigationView.setNavigationItemSelectedListener { menuItem ->
-            viewModel.filter(menuItem.title.toString())
+            when (menuItem.itemId) {
+                (R.id.movies_all) -> viewModel.filter()
+                else -> viewModel.filter(menuItem.title.toString())
+            }
             // Close the navigation drawer when an item is selected.
             menuItem.isChecked = true
             drawerLayout.closeDrawers()

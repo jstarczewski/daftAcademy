@@ -24,10 +24,12 @@ class MoviesViewModel(application: Application) : AndroidViewModel(application) 
 
     fun filter(filtering: String) {
         movies.clear()
-        if (filtering != "All movies")
-            movies.addAll(_movies.filter { it.genres.contains(filtering) })
-        else
-            movies.addAll(_movies)
+        movies.addAll(_movies.filter { it.genres.contains(filtering) })
+    }
+
+    fun filter() {
+        movies.clear()
+        movies.addAll(_movies)
     }
 
 }
