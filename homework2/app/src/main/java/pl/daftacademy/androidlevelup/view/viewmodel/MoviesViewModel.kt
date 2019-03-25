@@ -13,16 +13,21 @@ class MoviesViewModel(application: Application) : AndroidViewModel(application) 
     val movies: ObservableArrayList<Movie> = ObservableArrayList()
     private val movieDao: MovieDao = MovieFileDao(getApplication())
 
-    var filtering: (String) -> (Unit) = { filtering ->
-        movies.clear()
-        movies.addAll(_movies.filter { it.genres.contains(filtering) })
-    }
-
     fun start() {
-        if (movies.isEmpty())
-            _movies.addAll(movieDao.getAllMovies())
+        if (movies.isEmpty()) {
+            load()
+            movies.addAll(_movies)
+        }
     }
 
-    private fun getMovies() = movieDao.getAllMovies()
+    private fun load() = _movies.addAll(movieDao.getAllMovies())
+
+    fun filter(filtering: String) {
+        movies.clear()
+        if (filtering != "All movies")
+            movies.addAll(_movies.filter { it.genres.contains(filtering) })
+        else
+            movies.addAll(_movies)
+    }
 
 }

@@ -8,7 +8,7 @@ import pl.daftacademy.androidlevelup.entity.Movie
 
 class MoviesAdapter : RecyclerView.Adapter<MovieViewHolder>() {
 
-    var items = emptyList<Movie>()
+    private var items = emptyList<Movie>()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -23,7 +23,9 @@ class MoviesAdapter : RecyclerView.Adapter<MovieViewHolder>() {
 
     override fun getItemCount() = items.size
 
-    fun setItems(items: ArrayList<Movie>) {
+    fun replaceData(items: ArrayList<Movie>) = setMovies(items)
+
+    private fun setMovies(items: ArrayList<Movie>) {
         this.items = items
     }
 

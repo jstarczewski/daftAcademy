@@ -7,6 +7,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import pl.daftacademy.androidlevelup.R
+import pl.daftacademy.androidlevelup.util.obtainViewModel
 import pl.daftacademy.androidlevelup.util.setupActionBar
 import pl.daftacademy.androidlevelup.view.viewmodel.MoviesViewModel
 
@@ -25,6 +26,8 @@ class HomeActivity : AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
         }
         setupNavigationDrawer()
+
+        viewModel = obtainViewModel()
 
     }
 
@@ -47,9 +50,7 @@ class HomeActivity : AppCompatActivity() {
     private fun setupDrawerContent(navigationView: NavigationView) {
 
         navigationView.setNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-
-            }
+            viewModel.filter(menuItem.title.toString())
             // Close the navigation drawer when an item is selected.
             menuItem.isChecked = true
             drawerLayout.closeDrawers()
@@ -57,4 +58,17 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
+    fun obtainViewModel(): MoviesViewModel = obtainViewModel(MoviesViewModel::class.java)
+
+    /**
+     * Dirty solution because we only have one fragment
+     * */
+
+    override fun onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
+    }
 }
