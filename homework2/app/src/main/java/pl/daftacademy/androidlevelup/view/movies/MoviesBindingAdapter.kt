@@ -10,7 +10,7 @@ object MoviesBindingAdapter {
     @BindingAdapter("app:movies")
     fun setMovies(recyclerView: RecyclerView, movies: ArrayList<Movie>) {
         with(recyclerView.adapter as MoviesAdapter) {
-            replaceData(movies)
+            items = movies
         }
     }
 

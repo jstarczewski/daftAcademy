@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_home.*
 import pl.daftacademy.androidlevelup.R
 import pl.daftacademy.androidlevelup.util.obtainViewModel
 import pl.daftacademy.androidlevelup.util.setupActionBar
@@ -21,13 +22,15 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        setupNavigationDrawer()
+
         setupActionBar(R.id.toolbar) {
             setHomeAsUpIndicator(R.drawable.ic_menu)
             setDisplayHomeAsUpEnabled(true)
+            title = navigation_view.menu.getItem(0).title
         }
-        setupNavigationDrawer()
-        viewModel = obtainViewModel()
 
+        viewModel = obtainViewModel()
     }
 
     private fun setupNavigationDrawer() {
@@ -53,7 +56,7 @@ class HomeActivity : AppCompatActivity() {
                 (R.id.movies_all) -> viewModel.filter()
                 else -> viewModel.filter(menuItem.title.toString())
             }
-            // Close the navigation drawer when an item is selected.
+            toolbar.title = menuItem.title
             menuItem.isChecked = true
             drawerLayout.closeDrawers()
             true

@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import pl.daftacademy.androidlevelup.view.viewmodel.MoviesViewModel
 
+@Suppress("UNCHECKED_CAST")
 class ViewModelFactory private constructor(
     private val application: Application
 ) : ViewModelProvider.NewInstanceFactory() {

@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <LinearLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -20,6 +20,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="?attr/colorPrimary"
+                    app:layout_scrollFlags="scroll|enterAlways"
                     android:minHeight="?attr/actionBarSize"
                     android:theme="@style/Toolbar"
                     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
@@ -30,14 +31,14 @@
                 android:name="pl.daftacademy.androidlevelup.view.movies.MoviesFragment"
                 android:id="@+id/fragment"
                 android:layout_width="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 android:layout_height="match_parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
 
-    </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <com.google.android.material.navigation.NavigationView
             android:id="@+id/navigation_view"
