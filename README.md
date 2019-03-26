@@ -3,7 +3,7 @@
 Repository contains various homeworks I've done during DaftAcademy Android Level Up course.
 
 ## Homework 2
-Homework 2 task was to extend given app with below's features. I decided to use databinding and observer pattern, because for me it was the most intuitive way of implementing given use-cases. I wrote some simple and short unit/mock and instrumental tests to check whether added code is working properly.  
+Homework 2 task was to extend given app with below's features. I decided to use databinding and observer pattern, because for me it was the most intuitive way of implementing given use-cases. I wrote some simple and short unit/mock and instrumented tests to check whether added funcionality is working properly.  
 - [x] After launching the app user can see list of all movies.
 - [x] After tapping on menu icon user can see navigation drawer on the left side.
 - [x] Menu inside navigation drawer contains elements such as horror, action, all movies, comedy, crime, romance.
