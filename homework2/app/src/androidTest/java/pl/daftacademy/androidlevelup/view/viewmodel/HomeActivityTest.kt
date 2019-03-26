@@ -47,6 +47,11 @@ class HomeActivityTest {
     fun drawerItemSelectedThenToolbarTextChanged() {
         clickHomeToOpenDrawer()
         onView(withId(R.id.navigation_view)).perform(navigateTo(R.id.movies_action))
+
+        /**
+         * Dirty solution by hardcoding movie genre
+         * */
+
         onView(allOf(instanceOf(TextView::class.java), withParent(withId(R.id.toolbar)))).check(matches(withText("Action")))
     }
 

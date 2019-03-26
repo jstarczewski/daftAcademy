@@ -27,12 +27,20 @@ class MoviesViewModel(application: Application) : AndroidViewModel(application) 
 
     private fun load() = _movies.addAll(movieDao.getAllMovies())
 
-    fun filter(filtering: String) = movies.apply {
-        clear()
-        addAll(_movies.filter { it.genres.contains(filtering) })
+    /**
+     * Filter movies by genre
+     * */
+
+    fun getMoviesByGenre(filtering: String) {
+        movies.clear()
+        movies.addAll(_movies.filter { it.genres.contains(filtering) })
     }
 
-    fun filter() = movies.apply {
+    /**
+     * Displays all movies
+     * */
+
+    fun getAllMovies() {
         movies.clear()
         movies.addAll(_movies)
     }

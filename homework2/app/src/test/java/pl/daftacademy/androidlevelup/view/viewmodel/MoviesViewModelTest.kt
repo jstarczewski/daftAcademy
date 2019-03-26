@@ -11,7 +11,6 @@ import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 import org.mockito.Mockito
 import org.mockito.Mockito.*
-import org.mockito.internal.verification.NoMoreInteractions
 import pl.daftacademy.androidlevelup.data.MovieDao
 import pl.daftacademy.androidlevelup.entity.Movie
 import pl.daftacademy.androidlevelup.view.viewmodel.util.MockTestDataInjection
@@ -58,21 +57,21 @@ class MoviesViewModelTest {
 
     @Test
     fun filter() {
-        moviesViewModel.filter()
+        moviesViewModel.getAllMovies()
         assertEquals(moviesViewModel.movies, MockTestDataInjection.provideTestData())
     }
 
     @Test
     fun filterWithParameterCorrect() {
-        moviesViewModel.filter("horror")
+        moviesViewModel.getMoviesByGenre("horror")
         assertEquals(moviesViewModel.movies, listOf(Movie("Movie 4", 1922, listOf("horror"))))
     }
 
     @Test
     fun filterWithParameterIncorrect() {
-        moviesViewModel.filter("romance")
+        moviesViewModel.getMoviesByGenre("romance")
         assertNotEquals(moviesViewModel.movies, listOf(Movie("Movie 4", 1922, listOf("horror"))))
-        moviesViewModel.filter("romance")
+        moviesViewModel.getMoviesByGenre("romance")
         assertEquals(
             moviesViewModel.movies, listOf(
                 Movie("Movie 5", 1922, listOf("romance", "drama")),
@@ -83,7 +82,7 @@ class MoviesViewModelTest {
 
     @Test
     fun filterWithMoreThanOneAnswerParameterCorrect() {
-        moviesViewModel.filter("romance")
+        moviesViewModel.getMoviesByGenre("romance")
         assertEquals(
             moviesViewModel.movies, listOf(
                 Movie("Movie 5", 1922, listOf("romance", "drama")),

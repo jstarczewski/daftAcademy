@@ -53,8 +53,8 @@ class HomeActivity : AppCompatActivity() {
 
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                (R.id.movies_all) -> viewModel.filter()
-                else -> viewModel.filter(menuItem.title.toString())
+                (R.id.movies_all) -> viewModel.getAllMovies()
+                else -> viewModel.getMoviesByGenre(menuItem.title.toString())
             }
             toolbar.title = menuItem.title
             menuItem.isChecked = true
@@ -64,10 +64,6 @@ class HomeActivity : AppCompatActivity() {
     }
 
     fun obtainViewModel(): MoviesViewModel = obtainViewModel(MoviesViewModel::class.java)
-
-    /**
-     * Dirty solution because we only have one fragment
-     * */
 
     override fun onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
