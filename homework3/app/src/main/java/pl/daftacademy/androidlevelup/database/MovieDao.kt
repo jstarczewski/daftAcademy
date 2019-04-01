@@ -10,6 +10,6 @@ interface MovieDao {
     @Insert
     fun add(movies: Collection<Movie>)
 
-    @Query("SELECT *, studio.name FROM movie INNER JOIN studio ON studio.id = movie.studioId")
+    @Query("SELECT * FROM Movie")
     fun get(): List<Movie>
 }
