@@ -12,5 +12,5 @@ interface StudioDao {
     fun add(studio: Studio) : Long
 
     @Query("SELECT name FROM Studio WHERE id = :id")
-    fun getStudioName(id: Int) : String
+    fun getStudioNameById(id: Int) : String
 }

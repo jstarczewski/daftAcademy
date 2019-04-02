@@ -24,3 +24,12 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+
+    mockitoVersion = '2.22.0'
+    espressoVersion = '3.1.0'
+    androidxTestsVersion = '1.0.0'
+    androidxTestRunnerVersion = '1.1.0'
+
+}
