@@ -13,4 +13,12 @@ interface StudioDao {
 
     @Query("SELECT name FROM Studio WHERE id = :id")
     fun getStudioNameById(id: Int) : String
+
+    @Query("SELECT * FROM Studio")
+    fun getStudios() : List<Studio>
+
+    @Query("SELECT id FROM Studio WHERE name = :name")
+    fun getStudioIdByName(name: String) : Int
+
+
 }

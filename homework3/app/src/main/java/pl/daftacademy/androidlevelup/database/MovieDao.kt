@@ -13,4 +13,5 @@ interface MovieDao {
 
     @Query("SELECT * FROM Movie")
     fun get(): List<Movie>
+
 }

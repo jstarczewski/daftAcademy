@@ -2,6 +2,10 @@ package pl.daftacademy.androidlevelup.database
 
 import androidx.room.*
 
+/**
+ * Indeksowanie usuwa warning wystepujacy podczas budowania projektu
+ * */
+
 @Entity(
     indices = [Index(value = ["studioId"], name = "id_movie_studio")],
     foreignKeys = [
@@ -22,5 +26,5 @@ class Movie(
     val genres: String,
     @ColumnInfo(name = "studioId")
     val studioId: Int
-
 )
+
