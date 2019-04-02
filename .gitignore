@@ -2,6 +2,9 @@
 *.apk
 *.ap_
 
+# Vim files
+*.*~
+
 # Files for the ART/Dalvik VM
 *.dex
 
