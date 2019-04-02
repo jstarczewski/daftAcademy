@@ -34,27 +34,4 @@ dependencies {
     implementation "com.google.code.gson:gson:2.8.5"
     implementation 'androidx.appcompat:appcompat:1.0.2'
 
-
-    //Testing
-    testImplementation 'junit:junit:4.12'
-    testImplementation "org.mockito:mockito-inline:$rootProject.mockitoVersion"
-    androidTestImplementation "org.mockito:mockito-android:$rootProject.mockitoVersion"
-
-    androidTestImplementation "androidx.test:core:$rootProject.androidxTestsVersion"
-
-    androidTestImplementation "androidx.test:runner:$rootProject.androidxTestRunnerVersion"
-    androidTestImplementation "androidx.test:rules:$rootProject.androidxTestRunnerVersion"
-
-    androidTestImplementation "androidx.test.ext:junit:$rootProject.androidxTestsVersion"
-    androidTestImplementation "androidx.test.ext:truth:$rootProject.androidxTestsVersion"
-    androidTestImplementation "com.google.truth:truth:0.42"
-
-    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espressoVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-contrib:$rootProject.espressoVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-intents:$rootProject.espressoVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-accessibility:$rootProject.espressoVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-web:$rootProject.espressoVersion"
-    androidTestImplementation "androidx.test.espresso.idling:idling-concurrent:$rootProject.espressoVersion"
-
-    androidTestImplementation "androidx.test.espresso:espresso-idling-resource:$rootProject.espressoVersion"
 }
