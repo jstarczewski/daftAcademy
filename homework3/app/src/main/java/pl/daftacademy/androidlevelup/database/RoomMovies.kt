@@ -8,7 +8,7 @@ class RoomMovies(private val movieDao: MovieDao, private val studioDao: StudioDa
 
     /**
      * Nie udało mi się wymyśleć w jaki sposób całkowicie odeseparowac od siebie Studio i Movies z zachowaniem narzuconego interfejsu.
-     * Dlatego nie zaimplementowałem oddzielnej klasy dostarczajacej dane z bazy dla encji Studio. Biorąc pod uwage, że moje rozwiazanie łamie single responsibility principale,
+     * Z tego powodu nie zaimplementowałem oddzielnego data-source'a z wystawionym interfejsem dla encji Studio. Biorąc pod uwage, że moje rozwiazanie łamie single responsibility principale,
      * niektóre konwencje DDD i obniża poziom abstrakcji to zgodnie z założeniami nie wprowadza znacznych zmian w pakietach .entity, .view, a nasze
      * encje w rozpatrywanym przypadku uzycia maja wspolny powod do zmiany, co troche przemawia za wstrzymaniem sie od implementacji dodatkowych klas.
      * Udało mi się jednak wyzbyć zbednej logoki z tej warstwy na rzecz operacji na opakowanych w Room kwerendach.
