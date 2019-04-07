@@ -4,4 +4,7 @@
     <string name="notification_channel_default_id">default</string>
     <string name="notification_channel_default_name">Domyślne</string>
 
+    <string name="notification_boot_compleated_title">Witaj ponownie!</string>
+    <string name="notification_boot_compleated_message">Cieszymy się, że znowu jesteś z nami</string>
+
 </resources>
