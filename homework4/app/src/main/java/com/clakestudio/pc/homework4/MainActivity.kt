@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             .apply { action = "com.clakestudio.pc.homework4.NOTIFY" }
             .let { PendingIntent.getBroadcast(this, 0, it, 0) }
             .let {
-                alarmManager.setRepeating(
+                alarmManager.setRe(
                     AlarmManager.RTC_WAKEUP,
                     System.currentTimeMillis(),
                     AlarmManager.INTERVAL_FIFTEEN_MINUTES,
