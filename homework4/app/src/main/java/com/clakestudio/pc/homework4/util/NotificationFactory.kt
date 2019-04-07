@@ -8,10 +8,10 @@ import android.content.Context
 import android.content.Intent
 import android.media.RingtoneManager
 import android.os.Build
-import android.support.annotation.StringRes
-import androidx.annotation.RequiresApi
 import androidx.annotation.StringRes
+import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
+import com.clakestudio.pc.homework4.MainActivity
 import com.clakestudio.pc.homework4.R
 import java.util.*
 
@@ -53,7 +53,7 @@ class NotificationFactory {
         get() = getSystemService(Context.NOTIFICATION_SERVICE) as? NotificationManager
 
     private fun createPendingIntent(context: Context) =
-        Intent(context, HomeActivity::class.java)
+        Intent(context, MainActivity::class.java)
             .let { it.toPendingIntent(context) }
 
     private fun Intent.toPendingIntent(context: Context) =
