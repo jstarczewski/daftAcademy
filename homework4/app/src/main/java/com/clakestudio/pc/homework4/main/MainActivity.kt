@@ -17,13 +17,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        ContextCompat.startForegroundService(this, Intent(this, ScanningService::class.java))
-
         btStopService.setOnClickListener {
             stopService(Intent(this, ScanningService::class.java))
         }
+
         scheduleAlarm()
+
+        /**
+         * Jeżeli dobrze zrozumiałem dyskusje na Slacku to "po pierwszym uruchomieniu i przy pierwszym podlaczeniu ladowarki" oznacza z każdym
+         * następnym uruchomieniem aplikacji nadpisujemy poprzednie powiadomienie
+         * i zlecamy prace do wykonania jeszcze raz, która ma sie wykonać tylko jeden raz (REPLACE nie APPEND) ?
+         * */
         scheduleSingleWork()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        startForegroundService()
     }
 
     private fun scheduleSingleWork() {
@@ -37,9 +47,11 @@ class MainActivity : AppCompatActivity() {
             .build()
         WorkManager
             .getInstance()
-            .enqueueUniqueWork(ShowChargerNotificationWorker::javaClass.name, ExistingWorkPolicy.APPEND, request)
+            .enqueueUniqueWork(ShowChargerNotificationWorker::javaClass.name, ExistingWorkPolicy.REPLACE, request)
     }
 
     private fun scheduleAlarm() = AlarmScheduler.scheduleAlarmForFamiliada(this)
 
+    private fun startForegroundService() =
+        ContextCompat.startForegroundService(this, Intent(this, ScanningService::class.java))
 }

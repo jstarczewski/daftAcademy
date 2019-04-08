@@ -19,8 +19,8 @@ class FamiliadaService : IntentService("FamiliadaIntentService") {
     private fun showAlarmNotification(context: Context) {
         notificationFactory.show(
             context,
-            context.resources.getString(R.string.notification_boot_alarm_title),
-            context.resources.getString(R.string.notification_boot_alarm_message)
+            getString(R.string.notification_boot_alarm_title),
+            getString(R.string.notification_boot_alarm_message)
         )
     }
 

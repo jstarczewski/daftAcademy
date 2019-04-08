@@ -13,9 +13,9 @@ import java.util.*
 object AlarmScheduler {
 
     fun scheduleAlarmForFamiliada(context: Context) =
-        rescheduleAlarm(context)
+        rescheduleAlarm(context, getCalendarWithProperTimeSet())
 
-    private fun rescheduleAlarm(context: Context) {
+    private fun rescheduleAlarm(context: Context, calendar: Calendar) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         Intent(context, FamiliadaService::class.java)
             .apply { action = "com.clakestudio.pc.homework4.NOTIFY" }
@@ -24,14 +24,14 @@ object AlarmScheduler {
                 fromAndroid(Build.VERSION_CODES.M) {
                     alarmManager.setExactAndAllowWhileIdle(
                         AlarmManager.RTC_WAKEUP,
-                        getCalendarWithProperTimeSet().timeInMillis,
+                        calendar.timeInMillis,
                         it
                     )
                 }
                 beforeAndroid(Build.VERSION_CODES.M) {
                     alarmManager.setExact(
                         AlarmManager.RTC_WAKEUP,
-                        getCalendarWithProperTimeSet().timeInMillis,
+                        calendar.timeInMillis,
                         it
                     )
                 }
@@ -40,8 +40,8 @@ object AlarmScheduler {
 
     private fun getCalendarWithProperTimeSet(): Calendar {
         val calendar = Calendar.getInstance().apply {
-            set(Calendar.HOUR_OF_DAY, 21)
-            set(Calendar.MINUTE, 16)
+            set(Calendar.HOUR_OF_DAY, 16)
+            set(Calendar.MINUTE, 20)
             set(Calendar.SECOND, 0)
         }
         if (calendar.timeInMillis - System.currentTimeMillis() <= 1)

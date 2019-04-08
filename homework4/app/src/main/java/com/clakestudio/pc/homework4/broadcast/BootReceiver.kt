@@ -1,6 +1,5 @@
 package com.clakestudio.pc.homework4.broadcast
 
-import android.app.AlarmManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -8,7 +7,7 @@ import com.clakestudio.pc.homework4.R
 import com.clakestudio.pc.homework4.util.AlarmScheduler
 import com.clakestudio.pc.homework4.util.NotificationFactory
 
-class AppReceiver : BroadcastReceiver() {
+class BootReceiver : BroadcastReceiver() {
 
     private val notificationFactory by lazy { NotificationFactory() }
 
