@@ -12,7 +12,6 @@ class ShowChargerNotificationWorker(private val context: Context, params: Worker
 
     private val notificationFactory by lazy { NotificationFactory() }
 
-
     override fun doWork(): Result {
         showChargerNotification()
         return Result.success()

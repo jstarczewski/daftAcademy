@@ -12,7 +12,7 @@ import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.work.*
-import com.clakestudio.pc.homework4.broadcast.AlarmReceiver
+import com.clakestudio.pc.homework4.broadcast.AppReceiver
 import com.clakestudio.pc.homework4.util.ext.beforeAndroid
 import com.clakestudio.pc.homework4.util.ext.fromAndroid
 import com.clakestudio.pc.homework4.work.ShowChargerNotificationWorker
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun scheduleAlarm() {
-        Intent(this, AlarmReceiver::class.java)
+        Intent(this, AppReceiver::class.java)
             .apply { action = "com.clakestudio.pc.homework4.NOTIFY" }
             .let { PendingIntent.getBroadcast(this, 0, it, 0) }
             .let {

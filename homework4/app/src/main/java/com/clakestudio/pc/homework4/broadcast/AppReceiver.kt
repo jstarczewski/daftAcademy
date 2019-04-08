@@ -7,24 +7,34 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import com.clakestudio.pc.homework4.R
-import com.clakestudio.pc.homework4.util.ext.fromAndroid
 import com.clakestudio.pc.homework4.util.NotificationFactory
 import com.clakestudio.pc.homework4.util.ext.beforeAndroid
-import java.util.*
-import java.util.concurrent.TimeUnit
+import com.clakestudio.pc.homework4.util.ext.fromAndroid
 
-class AlarmReceiver : BroadcastReceiver() {
+class AppReceiver : BroadcastReceiver() {
 
     private val notificationFactory by lazy { NotificationFactory() }
     private lateinit var alarmManager: AlarmManager
 
     override fun onReceive(context: Context?, intent: Intent?) {
         when (intent?.action) {
+            Intent.ACTION_BOOT_COMPLETED -> showBootNotification(context!!)
             "com.clakestudio.pc.homework4.NOTIFY" -> {
                 showAlarmNotification(context!!)
-                rescheduleAlarm(context!!)
+                rescheduleAlarm(context)
             }
         }
+    }
+
+    private fun showBootNotification(context: Context) {
+        fromAndroid(Build.VERSION_CODES.O) {
+            notificationFactory.createNotificationChannels(context)
+        }
+        notificationFactory.show(
+            context,
+            context.resources.getString(R.string.notification_boot_compleated_title),
+            context.resources.getString(R.string.notification_boot_compleated_message)
+        )
     }
 
     private fun showAlarmNotification(context: Context) {
@@ -40,7 +50,7 @@ class AlarmReceiver : BroadcastReceiver() {
 
     private fun rescheduleAlarm(context: Context) {
         alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        Intent(context, AlarmReceiver::class.java)
+        Intent(context, AppReceiver::class.java)
             .apply { action = "com.clakestudio.pc.homework4.NOTIFY" }
             .let { PendingIntent.getBroadcast(context, 0, it, 0) }
             .let {
@@ -60,5 +70,4 @@ class AlarmReceiver : BroadcastReceiver() {
                 }
             }
     }
-
 }
