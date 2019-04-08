@@ -1,4 +1,4 @@
-package com.clakestudio.pc.homework4.foreground
+package com.clakestudio.pc.homework4.services
 
 import android.app.Service
 import android.content.Intent

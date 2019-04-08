@@ -29,7 +29,8 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".foreground.ScanningService"/>
+        <service android:name=".services.ScanningService"/>
+        <service android:name=".services.FamiliadaService"/>
 
     </application>
 
