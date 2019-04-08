@@ -26,7 +26,6 @@ class ScanningService : Service() {
 
     override fun onBind(intent: Intent?): IBinder? {
         return null
-
     }
 
     private fun showStartsToast() {

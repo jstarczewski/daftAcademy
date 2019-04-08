@@ -11,10 +11,12 @@ import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.work.*
 import com.clakestudio.pc.homework4.broadcast.AlarmReceiver
 import com.clakestudio.pc.homework4.util.ext.beforeAndroid
 import com.clakestudio.pc.homework4.util.ext.fromAndroid
-import java.util.concurrent.TimeUnit
+import com.clakestudio.pc.homework4.work.ShowChargerNotificationWorker
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,11 +32,26 @@ class MainActivity : AppCompatActivity() {
         btStopService.setOnClickListener {
             stopService(Intent(this, ScanningService::class.java))
         }
-        scheduleSingleAlarm()
+        scheduleAlarm()
+        scheduleSingleWork()
+    }
+
+    private fun scheduleSingleWork() {
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.CONNECTED)
+            .setRequiresBatteryNotLow(true)
+            .setRequiresCharging(true)
+            .build()
+        val request = OneTimeWorkRequest.Builder(ShowChargerNotificationWorker::class.java)
+            .setConstraints(constraints)
+            .build()
+        WorkManager
+            .getInstance()
+            .enqueueUniqueWork(ShowChargerNotificationWorker::javaClass.name, ExistingWorkPolicy.APPEND, request)
     }
 
 
-    private fun scheduleSingleAlarm() {
+    private fun scheduleAlarm() {
         Intent(this, AlarmReceiver::class.java)
             .apply { action = "com.clakestudio.pc.homework4.NOTIFY" }
             .let { PendingIntent.getBroadcast(this, 0, it, 0) }
@@ -42,17 +59,28 @@ class MainActivity : AppCompatActivity() {
                 fromAndroid(Build.VERSION_CODES.M) {
                     alarmManager.setExactAndAllowWhileIdle(
                         AlarmManager.RTC_WAKEUP,
-                        System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(4),
+                        getCalendarWithProperTimeSet().timeInMillis,
                         it
                     )
                 }
                 beforeAndroid(Build.VERSION_CODES.M) {
                     alarmManager.setExact(
                         AlarmManager.RTC_WAKEUP,
-                        System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(4),
+                        getCalendarWithProperTimeSet().timeInMillis,
                         it
                     )
                 }
             }
+    }
+
+    private fun getCalendarWithProperTimeSet(): Calendar {
+        val calendar = Calendar.getInstance().apply {
+            set(Calendar.HOUR_OF_DAY, 19)
+            set(Calendar.MINUTE, 24)
+            set(Calendar.SECOND, 0)
+        }
+        if (calendar.timeInMillis - System.currentTimeMillis() < 0)
+            calendar.set(Calendar.DAY_OF_YEAR, calendar.get(Calendar.DAY_OF_YEAR) + 1)
+        return calendar
     }
 }

@@ -10,6 +10,7 @@ import com.clakestudio.pc.homework4.R
 import com.clakestudio.pc.homework4.util.ext.fromAndroid
 import com.clakestudio.pc.homework4.util.NotificationFactory
 import com.clakestudio.pc.homework4.util.ext.beforeAndroid
+import java.util.*
 import java.util.concurrent.TimeUnit
 
 class AlarmReceiver : BroadcastReceiver() {
@@ -46,17 +47,18 @@ class AlarmReceiver : BroadcastReceiver() {
                 fromAndroid(Build.VERSION_CODES.M) {
                     alarmManager.setExactAndAllowWhileIdle(
                         AlarmManager.RTC_WAKEUP,
-                        System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(20),
+                        System.currentTimeMillis() + (10 * 60 * 1000),
                         it
                     )
                 }
                 beforeAndroid(Build.VERSION_CODES.M) {
                     alarmManager.setExact(
                         AlarmManager.RTC_WAKEUP,
-                        System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(20),
+                        System.currentTimeMillis() + (3600 * 24 * 1000),
                         it
                     )
                 }
             }
     }
+
 }

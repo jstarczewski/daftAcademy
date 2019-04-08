@@ -12,4 +12,7 @@
     <string name="notification_boot_alarm_title">Familiada o 16:35 na TVP2</string>
     <string name="notification_boot_alarm_message">Nie przegap najlepszego programu rozrywkowego</string>
 
+    <string name="notification_charger_title">Obserwujemy Cię!</string>
+    <string name="notification_charger_message">Ładowarka podłączona :)</string>
+
 </resources>
