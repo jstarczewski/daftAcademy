@@ -14,8 +14,6 @@ class BootReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context?, intent: Intent?) {
         when (intent?.action) {
-
-
             Intent.ACTION_BOOT_COMPLETED -> showBootNotification(context!!)
         }
     }
@@ -23,10 +21,11 @@ class BootReceiver : BroadcastReceiver() {
     private fun showBootNotification(context: Context) {
         fromAndroid(Build.VERSION_CODES.O) {
             notificationFactory.createNotificationChannels(context)
-            notificationFactory.show(
-                context,
-                context.resources.getString(R.string.notification_boot_compleated_title),
-                context.resources.getString(R.string.notification_boot_compleated_message))
         }
+        notificationFactory.show(
+            context,
+            context.resources.getString(R.string.notification_boot_compleated_title),
+            context.resources.getString(R.string.notification_boot_compleated_message)
+        )
     }
 }
