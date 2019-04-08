@@ -14,5 +14,8 @@
 
     <string name="notification_charger_title">Obserwujemy Cię!</string>
     <string name="notification_charger_message">Ładowarka podłączona :)</string>
+    <string name="notification_scanning_message">Skanowanie beconów aktywne...</string>
+    <string name="notification_scanning_title">Skanowanie</string>
+    <string name="foreground_service_toast_text">Scanning...</string>
 
 </resources>

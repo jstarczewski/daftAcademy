@@ -19,7 +19,10 @@ class AppReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context?, intent: Intent?) {
         when (intent?.action) {
-            Intent.ACTION_BOOT_COMPLETED -> showBootNotification(context!!)
+            Intent.ACTION_BOOT_COMPLETED -> {
+                showBootNotification(context!!)
+                rescheduleAlarm(context)
+            }
             "com.clakestudio.pc.homework4.NOTIFY" -> {
                 showAlarmNotification(context!!)
                 rescheduleAlarm(context)
