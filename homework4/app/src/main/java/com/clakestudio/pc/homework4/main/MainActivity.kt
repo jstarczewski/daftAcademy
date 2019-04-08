@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
          * następnym uruchomieniem aplikacji nadpisujemy poprzednie powiadomienie
          * i zlecamy prace do wykonania jeszcze raz, która ma sie wykonać tylko jeden raz (REPLACE nie APPEND) ?
          * */
+
         scheduleSingleWork()
     }
 

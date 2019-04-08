@@ -6,6 +6,7 @@
 
     <string name="notification_boot_compleated_title">Witaj ponownie!</string>
     <string name="notification_boot_compleated_message">Cieszymy się, że znowu jesteś z nami</string>
+
     <string name="start_foreground_service">Start Foreground service</string>
     <string name="stop_foreground_service">Stop Foreground service</string>
 
@@ -14,8 +15,9 @@
 
     <string name="notification_charger_title">Obserwujemy Cię!</string>
     <string name="notification_charger_message">Ładowarka podłączona :)</string>
-    <string name="notification_scanning_message">Skanowanie beconów aktywne...</string>
+
+    <string name="notification_scanning_message">Skanowanie beconów aktywne…</string>
     <string name="notification_scanning_title">Skanowanie</string>
-    <string name="foreground_service_toast_text">Scanning...</string>
+    <string name="foreground_service_toast_text">Scanning…</string>
 
 </resources>

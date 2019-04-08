@@ -18,8 +18,8 @@ class ScanningService : Service() {
         startForeground(
             NOTIFICATION_ID, notificationFactory.create(
                 this,
-                getString(R.string.notification_charger_title),
-                getString(R.string.notification_charger_message)
+                getString(R.string.notification_scanning_title),
+                getString(R.string.notification_scanning_message)
             )
         )
     }
