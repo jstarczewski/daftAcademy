@@ -9,4 +9,7 @@
     <string name="start_foreground_service">Start Foreground service</string>
     <string name="stop_foreground_service">Stop Foreground service</string>
 
+    <string name="notification_boot_alarm_title">Familiada o 16:35 na TVP2</string>
+    <string name="notification_boot_alarm_message">Nie przegap najlepszego programu rozrywkowego</string>
+
 </resources>

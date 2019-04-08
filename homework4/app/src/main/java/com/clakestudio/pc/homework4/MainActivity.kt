@@ -1,17 +1,25 @@
 package com.clakestudio.pc.homework4
 
+import android.app.AlarmManager
+
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-<<<<<<< HEAD
-import com.clakestudio.pc.homework4.util.NotificationFactory
-=======
 import androidx.core.content.ContextCompat
 import com.clakestudio.pc.homework4.foreground.ScanningService
 import kotlinx.android.synthetic.main.activity_main.*
->>>>>>> feature_foreground
+import android.app.PendingIntent
+import android.content.Context
+import android.os.Build
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.clakestudio.pc.homework4.broadcast.AlarmReceiver
+import com.clakestudio.pc.homework4.util.ext.beforeAndroid
+import com.clakestudio.pc.homework4.util.ext.fromAndroid
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
+
+    private val alarmManager: AlarmManager
+        get() = getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +30,29 @@ class MainActivity : AppCompatActivity() {
         btStopService.setOnClickListener {
             stopService(Intent(this, ScanningService::class.java))
         }
+        scheduleSingleAlarm()
+    }
 
+
+    private fun scheduleSingleAlarm() {
+        Intent(this, AlarmReceiver::class.java)
+            .apply { action = "com.clakestudio.pc.homework4.NOTIFY" }
+            .let { PendingIntent.getBroadcast(this, 0, it, 0) }
+            .let {
+                fromAndroid(Build.VERSION_CODES.M) {
+                    alarmManager.setExactAndAllowWhileIdle(
+                        AlarmManager.RTC_WAKEUP,
+                        System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(4),
+                        it
+                    )
+                }
+                beforeAndroid(Build.VERSION_CODES.M) {
+                    alarmManager.setExact(
+                        AlarmManager.RTC_WAKEUP,
+                        System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(4),
+                        it
+                    )
+                }
+            }
     }
 }
