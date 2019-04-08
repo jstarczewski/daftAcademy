@@ -11,7 +11,7 @@ import android.os.Build
 import androidx.annotation.StringRes
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
-import com.clakestudio.pc.homework4.MainActivity
+import com.clakestudio.pc.homework4.main.MainActivity
 import com.clakestudio.pc.homework4.R
 import java.util.*
 

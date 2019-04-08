@@ -1,4 +1,4 @@
-package com.clakestudio.pc.homework4
+package com.clakestudio.pc.homework4.main
 
 import android.app.AlarmManager
 
@@ -12,6 +12,7 @@ import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.work.*
+import com.clakestudio.pc.homework4.R
 import com.clakestudio.pc.homework4.broadcast.AppReceiver
 import com.clakestudio.pc.homework4.util.ext.beforeAndroid
 import com.clakestudio.pc.homework4.util.ext.fromAndroid
@@ -76,10 +77,10 @@ class MainActivity : AppCompatActivity() {
     private fun getCalendarWithProperTimeSet(): Calendar {
         val calendar = Calendar.getInstance().apply {
             set(Calendar.HOUR_OF_DAY, 19)
-            set(Calendar.MINUTE, 24)
+            set(Calendar.MINUTE, 58)
             set(Calendar.SECOND, 0)
         }
-        if (calendar.timeInMillis - System.currentTimeMillis() < 0)
+        if (calendar.timeInMillis - System.currentTimeMillis() <= 1)
             calendar.set(Calendar.DAY_OF_YEAR, calendar.get(Calendar.DAY_OF_YEAR) + 1)
         return calendar
     }

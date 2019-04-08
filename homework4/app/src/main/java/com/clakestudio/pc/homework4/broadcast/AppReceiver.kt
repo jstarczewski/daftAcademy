@@ -10,6 +10,7 @@ import com.clakestudio.pc.homework4.R
 import com.clakestudio.pc.homework4.util.NotificationFactory
 import com.clakestudio.pc.homework4.util.ext.beforeAndroid
 import com.clakestudio.pc.homework4.util.ext.fromAndroid
+import java.util.*
 
 class AppReceiver : BroadcastReceiver() {
 
@@ -27,9 +28,6 @@ class AppReceiver : BroadcastReceiver() {
     }
 
     private fun showBootNotification(context: Context) {
-        fromAndroid(Build.VERSION_CODES.O) {
-            notificationFactory.createNotificationChannels(context)
-        }
         notificationFactory.show(
             context,
             context.resources.getString(R.string.notification_boot_compleated_title),
@@ -38,9 +36,6 @@ class AppReceiver : BroadcastReceiver() {
     }
 
     private fun showAlarmNotification(context: Context) {
-        fromAndroid(Build.VERSION_CODES.O) {
-            notificationFactory.createNotificationChannels(context)
-        }
         notificationFactory.show(
             context,
             context.resources.getString(R.string.notification_boot_alarm_title),
@@ -57,17 +52,28 @@ class AppReceiver : BroadcastReceiver() {
                 fromAndroid(Build.VERSION_CODES.M) {
                     alarmManager.setExactAndAllowWhileIdle(
                         AlarmManager.RTC_WAKEUP,
-                        System.currentTimeMillis() + (10 * 60 * 1000),
+                        getCalendarWithProperTimeSet().timeInMillis,
                         it
                     )
                 }
                 beforeAndroid(Build.VERSION_CODES.M) {
                     alarmManager.setExact(
                         AlarmManager.RTC_WAKEUP,
-                        System.currentTimeMillis() + (3600 * 24 * 1000),
+                        getCalendarWithProperTimeSet().timeInMillis,
                         it
                     )
                 }
             }
+    }
+
+    private fun getCalendarWithProperTimeSet(): Calendar {
+        val calendar = Calendar.getInstance().apply {
+            set(Calendar.HOUR_OF_DAY, 20)
+            set(Calendar.MINUTE, 0)
+            set(Calendar.SECOND, 0)
+        }
+        if (calendar.timeInMillis - System.currentTimeMillis() <= 1)
+            calendar.set(Calendar.DAY_OF_YEAR, calendar.get(Calendar.DAY_OF_YEAR) + 1)
+        return calendar
     }
 }
