@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         /**
          * Jeżeli dobrze zrozumiałem dyskusje na Slacku to "po pierwszym uruchomieniu i przy pierwszym podlaczeniu ladowarki gdy jest internet"
          * oznacza z każdym następnym uruchomieniem aplikacji nie dodajemy kolejnej pracy jezeli taka jest juz zlecona ?
+         * Po prostu bez wykorzystania SharedPreferences.
          * */
 
         scheduleSingleWork()
