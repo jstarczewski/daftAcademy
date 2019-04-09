@@ -24,9 +24,8 @@ class MainActivity : AppCompatActivity() {
         scheduleAlarm()
 
         /**
-         * Jeżeli dobrze zrozumiałem dyskusje na Slacku to "po pierwszym uruchomieniu i przy pierwszym podlaczeniu ladowarki" oznacza z każdym
-         * następnym uruchomieniem aplikacji nadpisujemy poprzednie powiadomienie
-         * i zlecamy prace do wykonania jeszcze raz, która ma sie wykonać tylko jeden raz (REPLACE nie APPEND) ?
+         * Jeżeli dobrze zrozumiałem dyskusje na Slacku to "po pierwszym uruchomieniu i przy pierwszym podlaczeniu ladowarki gdy jest internet"
+         * oznacza z każdym następnym uruchomieniem aplikacji nie dodajemy kolejnej pracy jezeli taka jest juz zlecona ?
          * */
 
         scheduleSingleWork()
@@ -34,13 +33,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+
+        /**
+         * Wzbudzamy w onStart, bo nie ma przycisku, a tak latwo widac toast z onStartCommand
+         * */
+
         startForegroundService()
     }
 
     private fun scheduleSingleWork() {
         val constraints = Constraints.Builder()
             .setRequiredNetworkType(NetworkType.CONNECTED)
-            .setRequiresBatteryNotLow(true)
             .setRequiresCharging(true)
             .build()
         val request = OneTimeWorkRequest.Builder(ShowChargerNotificationWorker::class.java)
@@ -48,7 +51,7 @@ class MainActivity : AppCompatActivity() {
             .build()
         WorkManager
             .getInstance()
-            .enqueueUniqueWork(ShowChargerNotificationWorker::javaClass.name, ExistingWorkPolicy.REPLACE, request)
+            .enqueueUniqueWork(ShowChargerNotificationWorker::javaClass.name, ExistingWorkPolicy.KEEP, request)
     }
 
     private fun scheduleAlarm() = AlarmScheduler.scheduleAlarmForFamiliada(this)

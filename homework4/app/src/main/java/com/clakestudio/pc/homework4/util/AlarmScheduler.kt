@@ -12,8 +12,19 @@ import java.util.*
 
 object AlarmScheduler {
 
+    /**
+     * Postanowilem reschedulowac alarm z ta sama godzina i flaga UPDATE CURRENT (chociaż w apce jest jeden alarm takze
+     * flaga moglaby nie zmieniac juz setowanego alarmu) kiedy sie wykona aby uzyskać
+     * (chyba) największą mozliwą dokładność. W dokumentacji znalazłem fragment, ze od Androida KitKat wszystkie alarmy ustawione jako
+     * setRepeating sa niedokładne, a obecnie wiekszość urządzeń dziala na API >= 19
+     * Reschedulowanie polecili we fragmencie Note do metody setRepeating, plus taki ze alarm w Doze/Standby zadziala dokladnie
+     *
+     * https://developer.android.com/reference/android/app/AlarmManager.html#setRepeating(int,%20long,%20long,%20android.app.PendingIntent)
+     *
+     * */
+
     fun scheduleAlarmForFamiliada(context: Context) =
-        rescheduleAlarm(context, getCalendarWithProperTimeSet())
+        rescheduleAlarm(context, getCalendarWithProperTimeSetForFamiliada())
 
     private fun rescheduleAlarm(context: Context, calendar: Calendar) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
@@ -38,7 +49,7 @@ object AlarmScheduler {
             }
     }
 
-    private fun getCalendarWithProperTimeSet(): Calendar {
+    private fun getCalendarWithProperTimeSetForFamiliada(): Calendar {
         val calendar = Calendar.getInstance().apply {
             set(Calendar.HOUR_OF_DAY, 16)
             set(Calendar.MINUTE, 20)
