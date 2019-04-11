@@ -56,7 +56,7 @@ object AlarmScheduler {
             set(Calendar.SECOND, 0)
         }
         if (calendar.timeInMillis - System.currentTimeMillis() <= 1)
-            calendar.set(Calendar.DAY_OF_YEAR, calendar.get(Calendar.DAY_OF_YEAR) + 1)
+            calendar.set(Calendar.DAY_OF_YEAR, 1)
         return calendar
     }
 
